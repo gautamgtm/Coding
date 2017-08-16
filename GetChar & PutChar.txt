@@ -1,0 +1,28 @@
+Faster I/O:
+
+#include <stdlib.h>
+#include <stdint.h>
+#include <unistd.h>
+
+
+inline void read(int &x)
+{
+	x=0;
+	register char c=getchar_unlocked();
+	for(;c<'0' || c>'9';c=getchar_unlocked());
+	 for(;c>='0' && c<='9';c=getchar_unlocked())
+	  x=(x<<3)+(x<<1)+(c-'0');
+}
+
+inline void write(int x)
+{
+ register char buffor[35];
+ register int i=0;
+ do{
+       buffor[i++]=(x%10)+'0';
+       x/=10;
+    } while(x);
+   i--;
+    while(i>=0) putchar_unlocked(buffor[i--]);
+    putchar_unlocked('\n');
+}

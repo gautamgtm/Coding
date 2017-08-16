@@ -1,0 +1,6 @@
+To calcuate product in big real types(C++ version): 
+        //a * b mod p = a * b - [a * b / p] * p
+    long long mul(long long a, long long b, long long p) {
+        long long k = (long long)((long double)a * b / p + 0.5);
+        return a * b - k * p;
+    }

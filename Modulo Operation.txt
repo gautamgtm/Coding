@@ -1,0 +1,25 @@
+Modulo Opn while subtracting :
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int a = (55%50 -(20 + 15)%50)%50;
+	cout<<a;
+	return 0;
+}
+
+O/P : -30
+
+Correct Way:
+
+int main() {
+	// your code goes here
+	int a = (55%50 -(20 + 15)%50)%50;
+	if(a<0)
+		a += MOD;
+	cout<<a;
+	return 0;
+}
+
+O/P : 20

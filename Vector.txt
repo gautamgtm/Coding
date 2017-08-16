@@ -1,0 +1,53 @@
+Initializing a vector with Zero : ------------------------------>
+
+vector<int> vector1(length, 0);
+
+
+
+
+Initializing a vector of vectors with Zero : ----------------------->
+
+This creates a vector containing 10 vectors of int, each containing 10 ints :
+vector<vector<int> > v(10, vector<int>(10,1));
+
+
+Reset every element to a number : ---------------------------->
+
+fill(v.begin(), v.end(), 0);
+
+
+
+Pass a vector as an argument to a function : ---------------------->
+
+It depends on if you want to pass the vector as a reference or as a pointer (I am disregarding the option of passing it by value as clearly undesirable).
+
+As a reference:
+
+int binarySearch(int first, int last, int search4, vector<int>& random);
+
+vector<int> random(100);
+// ...
+found = binarySearch(first, last, search4, random);
+As a pointer:
+
+int binarySearch(int first, int last, int search4, vector<int>* random);
+
+vector<int> random(100);
+// ...
+found = binarySearch(first, last, search4, &random);
+Inside binarySearch, you will need to use . or -> to access the members of random correspondingly.
+
+Issues with your current code
+
+binarySearch expects a vector<int>*, but you pass in a vector<int> (missing a & before random)
+You do not dereference the pointer inside binarySearch before using it (for example, random[mid] should be (*random)[mid]
+You are missing using namespace std; after the <include>s
+The values you assign to first and last are wrong (should be 0 and 99 instead of random[0] and random[99]
+
+
+
+Sort vector of pairs by second value (largest first)------------------------------------------------------------------------------------------>
+
+std::sort(v.begin(), v.end(), [](auto &left, auto &right) {
+    return left.second < right.second;
+});

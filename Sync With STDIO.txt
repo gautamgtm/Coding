@@ -1,0 +1,31 @@
+//TL;DR
+
+Add "cout.sync_with_stdio(false);" in the main program before taking i/p for faster executio time. :D
+
+//LT;RC
+If the synchronization is off, the C++ streams will be faster in some cases.
+
+By default, all standard C++ streams are synchronized with their respective C streams.
+
+Example:
+
+#include <iostream>
+#include <cstdio>
+using namespace std;
+int main()
+{
+    cout.sync_with_stdio(false);
+    cout << "Hello\n";
+    printf("World\n");
+    cout << "...\n";
+}
+Output:
+
+Hello
+...
+World
+Changing it to true gives default result in order. Output:
+
+Hello
+World
+...

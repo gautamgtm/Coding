@@ -1,0 +1,9 @@
+If num is positive and ~10^18, try to use unsigned long long int, instead of long long int[Better to avoid overflow];
+
+LL a,b;
+LL MOD =1000000007;
+
+LL c = ( a%MOD * b%MOD)%MOD; ====> Overflow will happen.
+Use
+	LL aa = a%MOD, ab = b%MOD;
+	LL c = (a*c)%MOD;

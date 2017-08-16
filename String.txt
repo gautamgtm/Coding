@@ -1,0 +1,27 @@
+Find a substring in a string :
+
+string1.find(string2) == string :: npos    =======> not found =====> else returns position of 1st common character.
+
+Find content in string
+Searches the string for the first occurrence of the sequence specified by its arguments.
+
+When pos is specified, the search only includes characters at or after position pos, ignoring any possible occurrences that include characters before pos.
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------->>>>>
+
+Input a string:
+
+string str;
+cin>>str;
+
+char str[100000];
+scanf("%s", str);
+
+scanf version is much much faster than cin one. Use that only from now on for large string.

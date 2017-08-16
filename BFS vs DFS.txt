@@ -1,0 +1,43 @@
+There are basically two differences in implementation of DFS and BFS.
+They are:
+1)DFS uses stack while BFS uses queue.(this I understand).
+
+2)DFS delays checking whether a vertex has been discovered until the vertex is popped from the stack rather than making this check before pushing the vertex.
+
+DFS visits the node after removal from stack while BFS visits the node before adding it to queue.
+
+If you were to mark a node visited each time you pushed it in the stack your order of visiting the nodes would not comply with the idea of a Depth First Search.
+(an intuitive understanding: you have to visit the depth before the breadth)
+
+//DFS
+void dfs(node start) {
+ stack<node> s;
+ s.push(start);
+ while (s.empty() == false) {
+  top = s.top();
+  s.pop();
+
+  if (top is not marked as visited) {
+   check for termination condition (have we reached the node we want to?)
+
+   mark top as visited;
+   add all of top's neighbors to the stack.
+  }
+ }
+}
+
+//BFS
+void bfs(node start) {
+ queue<node> s;
+ s.push(start);
+ mark start as visited
+ while (s.empty() == false) {
+  top = s.front();
+  s.pop();
+
+  check for termination condition (have we reached the node we want to?)
+
+  add all of top's unvisited neighbors to the queue
+  mark all of top's unvisited neighbors as visited
+ }
+}
